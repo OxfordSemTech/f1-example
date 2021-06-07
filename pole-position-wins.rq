@@ -1,0 +1,8 @@
+PREFIX : <http://www.oxfordsemantic.tech/f1demo/>
+
+SELECT ?result WHERE {
+    ?result a :Win ;
+        :forRace/^:forRace ?qualifying ;
+        :forDriver/^:forDriver ?qualifying .
+    ?qualifying a :PolePositionQualifying .
+}

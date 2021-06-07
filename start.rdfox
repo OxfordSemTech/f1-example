@@ -1,0 +1,21 @@
+prefix : <http://www.oxfordsemantic.tech/f1demo/>
+
+set output out
+endpoint start
+
+dstore create default
+
+import data/data-1950s.ttl \
+    data/data-1960s.ttl \
+    data/data-1970s.ttl \
+    data/data-1980s.ttl \
+    data/data-1990s.ttl \
+    data/data-2000s.ttl \
+    data/data-2010s.ttl \
+    data/data-2020.ttl
+
+
+import > :OntologyGraph ontology.ttl
+importaxioms :OntologyGraph
+
+import data/data-2021.ttl

@@ -1,0 +1,38 @@
+:PolePositionQualifying a owl:Class .
+:Qualifying a owl:Class .
+:Result a owl:Class .
+:Win a owl:Class .
+
+:forDriver a owl:ObjectProperty .
+:forRace a owl:ObjectProperty .
+:participatedInRace a owl:ObjectProperty .
+:hasPosition a owl:DatatypeProperty .
+
+:participatedInRace owl:propertyChainAxiom (
+    [owl:inverseOf :forDriver]
+    :forRace
+) .
+
+:PolePositionQualifying owl:equivalentClass [ 
+    a owl:Class ;
+    owl:intersectionOf (
+        :Qualifying
+        [
+            a owl:Restriction ;
+            owl:onProperty :hasPosition ;
+            owl:hasValue "1"^^xsd:integer
+        ]
+    )
+] .
+
+:Win owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+        :Result 
+        [
+            a owl:Restriction ;
+            owl:onProperty :hasPosition ;
+            owl:hasValue "1"^^xsd:integer
+        ]
+    )
+] .
